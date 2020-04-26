@@ -46,7 +46,7 @@ app.js         // Runs the application
 ```
 
 <img src="https://avatars0.githubusercontent.com/u/62270445?v=4" alt="drawing" width="150" display="inline"/> masterkaizer  GitHubLink: https://github.com/masterkaizer
-# look in the install step
+# look in the install steps
 # google it 
 # Author Details 
 
