@@ -58,5 +58,5 @@ Email: brandon.sellam@gmail.com
 Phone Number: 9293205965
 
 
-![Alt Text](https://giphy.com/gifs/THTUTEOfDE3BnPd7ye/html5)
+![Alt Text](https://media.giphy.com/media/THTUTEOfDE3BnPd7ye/giphy.gif)
 

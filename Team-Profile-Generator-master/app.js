@@ -19,7 +19,7 @@ function promptUser(answers) {
             message: "what is your role?",
             choices: ["Engineer", "Intern", "Manager"]
         },
-    ]).then(function (res) {
+    ]).then(function(res) {
         // should use switch case instead of if/else starting here
         console.log(res)
         if (res.role === "Engineer") {
