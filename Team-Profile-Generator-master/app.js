@@ -1,4 +1,5 @@
 // first thing to run
+const fs= require("fs");
 const inquirer = require("inquirer");
 const jest = require("jest");
 const Engineer = require("./lib/engineer.js");
@@ -6,6 +7,10 @@ const Intern = require("./lib/intern.js");
 const Manager = require("./lib/manager.js");
 var uniqueId = 0;
 var teamArray = [];
+const path= require("path");
+const OUTPUT_DIR = path.resolve(__dirname, "output");
+const outputPath = path.join(OUTPUT_DIR, "team.html");
+const render = require("./lib/htmlRenderer");
 
 // will need to have separate inquirer prompts depending on role etc. 
 
@@ -40,7 +45,7 @@ function promptUser(answers) {
                     message: "What is your email?"
                 }
             ]).then(function (engineerRes) {
-                var newEngineer = new Engineer(engineerRes.name, engineerRes.email, uniqueId, engineerRes.github);
+                var newEngineer = new Engineer(engineerRes.name, uniqueId, engineerRes.email, engineerRes.github);
                 uniqueId = uniqueId + 1; // could be "uniqueId++"
                 console.log(newEngineer);
                 // run promptUser (called recursion) so that you can add multiple Engineers and id changes incrementally
@@ -67,7 +72,7 @@ function promptUser(answers) {
                     message: "Where did you graduate from college?"
                 }
             ]).then(function (internRes) {
-                var newIntern = new Intern(internRes.name, internRes.email, uniqueId, internRes.school);
+                var newIntern = new Intern(internRes.name, uniqueId, internRes.email, internRes.school);
                 uniqueId = uniqueId + 1; // could be "uniqueId++"
                 console.log(newIntern)
                 teamArray.push(newIntern);
@@ -91,7 +96,7 @@ function promptUser(answers) {
                     message: "What is your office number?"
                 }
             ]).then(function (managerRes) {
-                var newManager = new Manager(managerRes.name, managerRes.email, uniqueId, managerRes.office);
+                var newManager = new Manager(managerRes.name, uniqueId, managerRes.email, managerRes.office);
                 uniqueId = uniqueId + 1; // could be "uniqueId++"
                 console.log(newManager);
                 teamArray.push(newManager);
@@ -130,8 +135,11 @@ function generateHTML() {
     function renderEngineer() {
 
     };
-
+    render(teamArray);
+    fs.writeFile(outputPath,render(teamArray), ()=>console.log("done"));
 };
+
+
 
 function addUser(){
     inquirer.prompt([
