@@ -78,6 +78,8 @@ function promptUser(answers) {
                 teamArray.push(newIntern);
                 addUser();
             });
+            // here i am  setting the Manager prompt question 
+
         } else if (res.role === "Manager") {
             inquirer.prompt([
                 {
